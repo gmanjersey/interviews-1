@@ -1,0 +1,271 @@
+{\rtf1\ansi\deff0\nouicompat{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil Calibri;}}
+{\colortbl ;\red0\green0\blue255;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1 {\f0\fs22\lang9{\field{\*\fldinst{HYPERLINK https://docs.python.org/3/library/array.html }}{\fldrslt{https://docs.python.org/3/library/array.html\ul0\cf0}}}}\f0\fs22\par
+indexmodules |next |previous | Python \'bb \par
+English\par
+ \par
+3.8.3\par
+ Documentation \'bb The Python Standard Library \'bb Data Types \'bb\par
+Quick search\par
+  |\par
+array \f1\emdash  Efficient arrays of numeric values\par
+This module defines an object type which can compactly represent an array of basic values: characters, integers, floating point numbers. Arrays are sequence types and behave very much like lists, except that the type of objects stored in them is constrained. The type is specified at object creation time by using a type code, which is a single character. The following type codes are defined:\par
+\par
+Type code\par
+\par
+C Type\par
+\par
+Python Type\par
+\par
+Minimum size in bytes\par
+\par
+Notes\par
+\par
+'b'\par
+\par
+signed char\par
+\par
+int\par
+\par
+1\par
+\par
+'B'\par
+\par
+unsigned char\par
+\par
+int\par
+\par
+1\par
+\par
+'u'\par
+\par
+Py_UNICODE\par
+\par
+Unicode character\par
+\par
+2\par
+\par
+(1)\par
+\par
+'h'\par
+\par
+signed short\par
+\par
+int\par
+\par
+2\par
+\par
+'H'\par
+\par
+unsigned short\par
+\par
+int\par
+\par
+2\par
+\par
+'i'\par
+\par
+signed int\par
+\par
+int\par
+\par
+2\par
+\par
+'I'\par
+\par
+unsigned int\par
+\par
+int\par
+\par
+2\par
+\par
+'l'\par
+\par
+signed long\par
+\par
+int\par
+\par
+4\par
+\par
+'L'\par
+\par
+unsigned long\par
+\par
+int\par
+\par
+4\par
+\par
+'q'\par
+\par
+signed long long\par
+\par
+int\par
+\par
+8\par
+\par
+'Q'\par
+\par
+unsigned long long\par
+\par
+int\par
+\par
+8\par
+\par
+'f'\par
+\par
+float\par
+\par
+float\par
+\par
+4\par
+\par
+'d'\par
+\par
+double\par
+\par
+float\par
+\par
+8\par
+\par
+Notes:\par
+\par
+The 'u' type code corresponds to Python\rquote s obsolete unicode character (Py_UNICODE which is wchar_t). Depending on the platform, it can be 16 bits or 32 bits.\par
+\par
+'u' will be removed together with the rest of the Py_UNICODE API.\par
+\par
+Deprecated since version 3.3, will be removed in version 4.0.\par
+\par
+The actual representation of values is determined by the machine architecture (strictly speaking, by the C implementation). The actual size can be accessed through the itemsize attribute.\par
+\par
+The module defines the following type:\par
+\par
+class array.array(typecode[, initializer])\par
+A new array whose items are restricted by typecode, and initialized from the optional initializer value, which must be a list, a bytes-like object, or iterable over elements of the appropriate type.\par
+\par
+If given a list or string, the initializer is passed to the new array\rquote s fromlist(), frombytes(), or fromunicode() method (see below) to add initial items to the array. Otherwise, the iterable initializer is passed to the extend() method.\par
+\par
+Raises an auditing event array.__new__ with arguments typecode, initializer.\par
+\par
+array.typecodes\par
+A string with all available type codes.\par
+\par
+Array objects support the ordinary sequence operations of indexing, slicing, concatenation, and multiplication. When using slice assignment, the assigned value must be an array object with the same type code; in all other cases, TypeError is raised. Array objects also implement the buffer interface, and may be used wherever bytes-like objects are supported.\par
+\par
+The following data items and methods are also supported:\par
+\par
+array.typecode\par
+The typecode character used to create the array.\par
+\par
+array.itemsize\par
+The length in bytes of one array item in the internal representation.\par
+\par
+array.append(x)\par
+Append a new item with value x to the end of the array.\par
+\par
+array.buffer_info()\par
+Return a tuple (address, length) giving the current memory address and the length in elements of the buffer used to hold array\rquote s contents. The size of the memory buffer in bytes can be computed as array.buffer_info()[1] * array.itemsize. This is occasionally useful when working with low-level (and inherently unsafe) I/O interfaces that require memory addresses, such as certain ioctl() operations. The returned numbers are valid as long as the array exists and no length-changing operations are applied to it.\par
+\par
+Note When using array objects from code written in C or C++ (the only way to effectively make use of this information), it makes more sense to use the buffer interface supported by array objects. This method is maintained for backward compatibility and should be avoided in new code. The buffer interface is documented in Buffer Protocol.\par
+array.byteswap()\par
+\ldblquote Byteswap\rdblquote  all items of the array. This is only supported for values which are 1, 2, 4, or 8 bytes in size; for other types of values, RuntimeError is raised. It is useful when reading data from a file written on a machine with a different byte order.\par
+\par
+array.count(x)\par
+Return the number of occurrences of x in the array.\par
+\par
+array.extend(iterable)\par
+Append items from iterable to the end of the array. If iterable is another array, it must have exactly the same type code; if not, TypeError will be raised. If iterable is not an array, it must be iterable and its elements must be the right type to be appended to the array.\par
+\par
+array.frombytes(s)\par
+Appends items from the string, interpreting the string as an array of machine values (as if it had been read from a file using the fromfile() method).\par
+\par
+New in version 3.2: fromstring() is renamed to frombytes() for clarity.\par
+\par
+array.fromfile(f, n)\par
+Read n items (as machine values) from the file object f and append them to the end of the array. If less than n items are available, EOFError is raised, but the items that were available are still inserted into the array. f must be a real built-in file object; something else with a read() method won\rquote t do.\par
+\par
+array.fromlist(list)\par
+Append items from the list. This is equivalent to for x in list: a.append(x) except that if there is a type error, the array is unchanged.\par
+\par
+array.fromstring()\par
+Deprecated alias for frombytes().\par
+\par
+Deprecated since version 3.2, will be removed in version 3.9.\par
+\par
+array.fromunicode(s)\par
+Extends this array with data from the given unicode string. The array must be a type 'u' array; otherwise a ValueError is raised. Use array.frombytes(unicodestring.encode(enc)) to append Unicode data to an array of some other type.\par
+\par
+array.index(x)\par
+Return the smallest i such that i is the index of the first occurrence of x in the array.\par
+\par
+array.insert(i, x)\par
+Insert a new item with value x in the array before position i. Negative values are treated as being relative to the end of the array.\par
+\par
+array.pop([i])\par
+Removes the item with the index i from the array and returns it. The optional argument defaults to -1, so that by default the last item is removed and returned.\par
+\par
+array.remove(x)\par
+Remove the first occurrence of x from the array.\par
+\par
+array.reverse()\par
+Reverse the order of the items in the array.\par
+\par
+array.tobytes()\par
+Convert the array to an array of machine values and return the bytes representation (the same sequence of bytes that would be written to a file by the tofile() method.)\par
+\par
+New in version 3.2: tostring() is renamed to tobytes() for clarity.\par
+\par
+array.tofile(f)\par
+Write all items (as machine values) to the file object f.\par
+\par
+array.tolist()\par
+Convert the array to an ordinary list with the same items.\par
+\par
+array.tostring()\par
+Deprecated alias for tobytes().\par
+\par
+Deprecated since version 3.2, will be removed in version 3.9.\par
+\par
+array.tounicode()\par
+Convert the array to a unicode string. The array must be a type 'u' array; otherwise a ValueError is raised. Use array.tobytes().decode(enc) to obtain a unicode string from an array of some other type.\par
+\par
+When an array object is printed or converted to a string, it is represented as array(typecode, initializer). The initializer is omitted if the array is empty, otherwise it is a string if the typecode is 'u', otherwise it is a list of numbers. The string is guaranteed to be able to be converted back to an array with the same type and value using eval(), so long as the array class has been imported using from array import array. Examples:\par
+\par
+array('l')\par
+array('u', 'hello \\u2641')\par
+array('l', [1, 2, 3, 4, 5])\par
+array('d', [1.0, 2.0, 3.14])\par
+See also\par
+Module struct\par
+Packing and unpacking of heterogeneous binary data.\par
+\par
+Module xdrlib\par
+Packing and unpacking of External Data Representation (XDR) data as used in some remote procedure call systems.\par
+\par
+The Numerical Python Documentation\par
+The Numeric Python extension (NumPy) defines another array type; see {{\field{\*\fldinst{HYPERLINK http://www.numpy.org/ }}{\fldrslt{http://www.numpy.org/\ul0\cf0}}}}\f1\fs22  for further information about Numerical Python.\par
+\par
+Previous topic\par
+bisect \emdash  Array bisection algorithm\par
+\par
+Next topic\par
+weakref \emdash  Weak references\par
+\par
+This Page\par
+Report a Bug\par
+Show Source\par
+\f0\'ab\par
+indexmodules |next |previous | Python \'bb \par
+English\par
+ \par
+3.8.3\par
+ Documentation \'bb The Python Standard Library \'bb Data Types \'bb\par
+Quick search\par
+  |\par
+\'a9 Copyright 2001-2020, Python Software Foundation.\par
+The Python Software Foundation is a non-profit corporation. Please donate.\par
+\par
+Last updated on Jun 01, 2020. Found a bug?\par
+Created using Sphinx 2.3.1.\par
+}
+ 

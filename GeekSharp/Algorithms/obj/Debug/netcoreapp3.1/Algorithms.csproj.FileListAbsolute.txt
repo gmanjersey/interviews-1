@@ -1,0 +1,13 @@
+C:\Leroy\SC\Git\interviews-1\GeekSharp\Algorithms\bin\Debug\netcoreapp3.1\Algorithms.exe
+C:\Leroy\SC\Git\interviews-1\GeekSharp\Algorithms\bin\Debug\netcoreapp3.1\Algorithms.deps.json
+C:\Leroy\SC\Git\interviews-1\GeekSharp\Algorithms\bin\Debug\netcoreapp3.1\Algorithms.runtimeconfig.json
+C:\Leroy\SC\Git\interviews-1\GeekSharp\Algorithms\bin\Debug\netcoreapp3.1\Algorithms.runtimeconfig.dev.json
+C:\Leroy\SC\Git\interviews-1\GeekSharp\Algorithms\bin\Debug\netcoreapp3.1\Algorithms.dll
+C:\Leroy\SC\Git\interviews-1\GeekSharp\Algorithms\bin\Debug\netcoreapp3.1\Algorithms.pdb
+C:\Leroy\SC\Git\interviews-1\GeekSharp\Algorithms\obj\Debug\netcoreapp3.1\Algorithms.csprojAssemblyReference.cache
+C:\Leroy\SC\Git\interviews-1\GeekSharp\Algorithms\obj\Debug\netcoreapp3.1\Algorithms.AssemblyInfoInputs.cache
+C:\Leroy\SC\Git\interviews-1\GeekSharp\Algorithms\obj\Debug\netcoreapp3.1\Algorithms.AssemblyInfo.cs
+C:\Leroy\SC\Git\interviews-1\GeekSharp\Algorithms\obj\Debug\netcoreapp3.1\Algorithms.csproj.CoreCompileInputs.cache
+C:\Leroy\SC\Git\interviews-1\GeekSharp\Algorithms\obj\Debug\netcoreapp3.1\Algorithms.dll
+C:\Leroy\SC\Git\interviews-1\GeekSharp\Algorithms\obj\Debug\netcoreapp3.1\Algorithms.pdb
+C:\Leroy\SC\Git\interviews-1\GeekSharp\Algorithms\obj\Debug\netcoreapp3.1\Algorithms.genruntimeconfig.cache

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "4ORzODuLP/Y196vrwP5Ks/sgAwYY/XB5kF/ZGg9Kcf2IAbAJyzOpM/1THEyaMln3QfeUhYW7NjcSnieb2LNrPw==",
+  "success": true,
+  "projectFilePath": "C:\\Leroy\\SC\\Git\\interviews-1\\GeekSharp\\Algorithms\\Algorithms.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\gmann\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}
